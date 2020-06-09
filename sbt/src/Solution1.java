@@ -1,26 +1,26 @@
+import java.io.*;
 import java.util.*;
 
 public class Solution1 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        List<Integer> list = new ArrayList<>();
-        int a = sc.nextInt();
-        Scanner sc2 = new Scanner(System.in);
-        String st1 = sc2.nextLine();
-        StringTokenizer st = new StringTokenizer(st1);
-        for (int i = 0; i < a; i++) {
-            list.add(Integer.parseInt(st.nextToken()));
+    public static void main(String[] args) throws IOException  {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(in.readLine());
+        StringTokenizer st2 = new StringTokenizer(in.readLine());
+        final int N = Integer.parseInt(st.nextToken());
+        List<Integer> FirstArray = new ArrayList();
+        for (int i = 0; i < N; i++) {
+            FirstArray.add(Integer.parseInt(st2.nextToken()));
         }
         int maxVal = 0;
         for (int j = 0; j < 2; j++) {
-            maxVal = Collections.max(list);
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i) == maxVal) {
-                    list.set(i, list.get(i) / 2);
+            maxVal = Collections.max(FirstArray);
+            for (int i = 0; i < FirstArray.size(); i++) {
+                if (FirstArray.get(i) == maxVal) {
+                    FirstArray.set(i, FirstArray.get(i) / 2);
                 }
             }
         }
-        for (int e : list) {
+        for (int e : FirstArray) {
             System.out.print(e + " ");
         }
     }
